@@ -6,19 +6,22 @@ import TodoItemFilter from './TodoItemFilter'
 export default class TodoItemsList extends Component {
     render() {
         const items = []
-        let lastDueDate = null
+        let lastJsonDueDate = null
 
         this.props.todoItems
-            .sort((a, b) => new Date(a.dueDate).getTime() < new Date(b.dueDate).getTime() ? -1 : 1)
+            .sort((a, b) => new Date(a.jsonDueDate).getTime() < new Date(b.jsonDueDate).getTime() ? -1 : 1)
             .forEach(todoItem => {
-                if (todoItem.dueDate !== lastDueDate) {
+                if (todoItem.jsonDueDate !== lastJsonDueDate) {
+                    const dueDate = new Date(todoItem.jsonDueDate)
                     items.push(
-                        <TodoItemsDueDate dueDate={todoItem.dueDate} />
+                        <TodoItemsDueDate
+                            key={dueDate.getFullYear() * 32 * 13 + dueDate.getDay() * 13 + dueDate.getMonth()}
+                            dueDate={dueDate} />
                     )
-                    lastDueDate = todoItem.dueDate
+                    lastJsonDueDate = todoItem.jsonDueDate
                 }
                 items.push(
-                    <TodoItem todoItem={todoItem} />
+                    <TodoItem key={todoItem.id} todoItem={todoItem} />
                 )
             })
 

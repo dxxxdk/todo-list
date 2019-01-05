@@ -4,7 +4,7 @@ export default class TodoItemsDueDate extends Component {
     render() {
         return (
             <div>
-                {new Date(this.props.dueDate).toDateString()}
+                {this.props.dueDate.toDateString()}
             </div>
         )
     }
