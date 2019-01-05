@@ -26,8 +26,7 @@ export default class NewTodoInput extends Component {
     this.props.addTodo(title, dueDate)
 
     this.setState({
-      title: '',
-      dueDate: ''
+      title: ''
     })
 
     this.todoTitleTextInput.current.focus()
