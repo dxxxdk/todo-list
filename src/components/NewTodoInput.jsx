@@ -7,7 +7,7 @@ export default class NewTodoInput extends Component {
     super(props)
     this.state = {
       title: '',
-      dueDate: ''
+      dueDate: (new Date()).toJSON().slice(0, 10)
     }
     this.todoTitleTextInput = React.createRef()
 
