@@ -80,7 +80,6 @@ export default class NewTodoInput extends Component {
           value={this.state.dueDateString}
           onKeyDown={this.handleTodoDueDateKeyDown}
           onChange={this.handleTodoDueDateTextChange}
-          placeholder="Add due date"
         />
       </div>
     )

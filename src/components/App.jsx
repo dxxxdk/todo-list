@@ -5,9 +5,9 @@ import NewTodoInput from './NewTodoInput'
 
 // TODO: remove
 const sampleTodoItems = [
-  { id: 1, title: "do x", jsonDueDate: "2018-12-31T00:00:00.000Z", completed: true },
-  { id: 2, title: "finish y", jsonDueDate: "2019-01-01T00:00:00.000Z", completed: false },
-  { id: 3, title: "research z", jsonDueDate: "2019-01-02T00:00:00.000Z", completed: false },
+  { id: 1, title: "do x", jsonDueDate: "2018-12-31T00:00:00.000Z", isComplete: true },
+  { id: 2, title: "finish y", jsonDueDate: "2019-01-01T00:00:00.000Z", isComplete: false },
+  { id: 3, title: "research z", jsonDueDate: "2019-01-02T00:00:00.000Z", isComplete: false },
 ]
 
 export default class App extends Component {
