@@ -7,7 +7,7 @@ export default class NewTodoInput extends Component {
     super(props)
     this.state = {
       title: '',
-      dueDate: (new Date()).toJSON().slice(0, 10)
+      dueDateString: (new Date()).toJSON().slice(0, 10)
     }
     this.todoTitleTextInput = React.createRef()
 
@@ -19,11 +19,15 @@ export default class NewTodoInput extends Component {
 
   addTodo() {
     const title = this.state.title
-    let dueDate = this.state.dueDate
     if (!title.trim()) {
       return
     }
-    this.props.addTodo(title, dueDate)
+
+    const getUtcMidnightDate = date =>
+      new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()))
+    let dueDateString = getUtcMidnightDate(new Date(this.state.dueDateString)).toJSON()
+    
+    this.props.addTodo(title, dueDateString)
 
     this.setState({
       title: ''
@@ -52,7 +56,7 @@ export default class NewTodoInput extends Component {
 
   handleTodoDueDateTextChange(e) {
     this.setState({
-      dueDate: e.target.value
+      dueDateString: e.target.value
     })
   }
 
@@ -70,7 +74,7 @@ export default class NewTodoInput extends Component {
         />
         <input
           type="date"
-          value={this.state.dueDate}
+          value={this.state.dueDateString}
           onKeyDown={this.handleTodoDueDateKeyDown}
           onChange={this.handleTodoDueDateTextChange}
           placeholder="Add due date"

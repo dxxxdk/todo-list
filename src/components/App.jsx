@@ -5,9 +5,9 @@ import NewTodoInput from './NewTodoInput'
 
 // TODO: remove
 const sampleTodoItems = [
-  { id: 1, title: "do x", dueDate: "2018-12-31T23:00:00.000Z", completed: true },
-  { id: 2, title: "finish y", dueDate: "2019-01-01T23:00:00.000Z", completed: false },
-  { id: 3, title: "research z", dueDate: "2019-01-02T23:00:00.000Z", completed: false },
+  { id: 1, title: "do x", dueDate: "2018-12-31T00:00:00.000Z", completed: true },
+  { id: 2, title: "finish y", dueDate: "2019-01-01T00:00:00.000Z", completed: false },
+  { id: 3, title: "research z", dueDate: "2019-01-02T00:00:00.000Z", completed: false },
 ]
 
 export default class App extends Component {
@@ -20,7 +20,7 @@ export default class App extends Component {
     this.addTodo = this.addTodo.bind(this)
   }
 
-  addTodo(title, dueDate) {
+  addTodo(title, dueDateJson) {
     const todoItems = this.state.todoItems
 
     // TODO: handle overflow
@@ -28,7 +28,7 @@ export default class App extends Component {
       (maximumId, currentTodo) => maximumId > currentTodo.id ? maximumId : currentTodo.id,
       0)
 
-    todoItems.push({ id: id, title: title, dueDate: dueDate, completed: false })
+    todoItems.push({ id: id, title: title, dueDate: dueDateJson, completed: false })
 
     this.setState({
       todoItems: todoItems
