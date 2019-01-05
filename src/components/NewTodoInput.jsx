@@ -9,6 +9,7 @@ export default class NewTodoInput extends Component {
       title: '',
       dueDate: ''
     }
+    this.todoTitleTextInput = React.createRef()
 
     this.handleTodoTitleTextChange = this.handleTodoTitleTextChange.bind(this)
     this.handleTodoTitleKeyDown = this.handleTodoTextKeyDown.bind(this)
@@ -31,6 +32,8 @@ export default class NewTodoInput extends Component {
       title: '',
       dueDate: ''
     })
+
+    this.todoTitleTextInput.current.focus()
   }
 
   handleTodoTextKeyDown(e) {
@@ -61,6 +64,8 @@ export default class NewTodoInput extends Component {
     return (
       <div>
         <input
+          type="text"
+          ref={this.todoTitleTextInput}
           value={this.state.title}
           onKeyDown={this.handleTodoTitleKeyDown}
           onChange={this.handleTodoTitleTextChange}
@@ -68,6 +73,7 @@ export default class NewTodoInput extends Component {
           autoFocus={true}
         />
         <input
+          type="text"
           value={this.state.dueDate}
           onKeyDown={this.handleTodoDueDateKeyDown}
           onChange={this.handleTodoDueDateTextChange}
