@@ -23,11 +23,14 @@ export default class NewTodoInput extends Component {
       return
     }
 
+    const dueDateString = this.state.dueDateString
+    if(isNaN(Date.parse(dueDateString))){
+      return
+    }
     const getUtcMidnightDate = date =>
       new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()))
-    let dueDateString = getUtcMidnightDate(new Date(this.state.dueDateString)).toJSON()
     
-    this.props.addTodo(title, dueDateString)
+    this.props.addTodo(title, getUtcMidnightDate(new Date(dueDateString)).toJSON())
 
     this.setState({
       title: ''
