@@ -38,8 +38,10 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <NewTodoInput addTodo={this.addTodo} />
-        <TodoItemsList todoItems={this.state.todoItems} />
+        <React.StrictMode>
+          <NewTodoInput addTodo={this.addTodo} />
+          <TodoItemsList todoItems={this.state.todoItems} />
+        </React.StrictMode>
       </div>
     )
   }
