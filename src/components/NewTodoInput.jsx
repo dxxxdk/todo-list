@@ -23,9 +23,6 @@ export default class NewTodoInput extends Component {
     if (!title.trim()) {
       return
     }
-    if (isNaN(Date.parse(dueDate))) {
-      dueDate = Date()
-    }
     this.props.addTodo(title, dueDate)
 
     this.setState({
@@ -73,7 +70,7 @@ export default class NewTodoInput extends Component {
           autoFocus={true}
         />
         <input
-          type="text"
+          type="date"
           value={this.state.dueDate}
           onKeyDown={this.handleTodoDueDateKeyDown}
           onChange={this.handleTodoDueDateTextChange}
