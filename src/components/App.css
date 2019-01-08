@@ -1,19 +1,39 @@
 .App {
-  background-color: #ffffff;
-  max-width: 600px;
-  padding: 30px;
-  margin: auto;
+    background-color: #ffffff;
+    max-width: 600px;
+    padding: 30px;
+    margin: auto;
 }
 
 .todo-item {
-  color: #000;
-  margin: 3px;
-  border: 1.5px solid #ccc;
-  border-radius: 16px;
-  padding: 8px 16px;
+    border: 1.5px solid #888888;
+    border-radius: 16px;
+    padding: 8px 16px;
+    margin: 3px;
 }
 
-.todo-item-complete {
-  color: #646464;
-  text-decoration: line-through;
+.todo-checkbox {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #888888;
+    border-radius: 20%;
+    float: left;
+    margin-right: 8px;
+}
+
+.todo-checkbox:hover {
+    background-color: #cccccc;
+}
+
+.todo-checkbox-complete {
+    background-color: #888888;
+}
+
+.todo-title {
+    line-height: 18px;
+}
+
+.todo-title-complete {
+    color: #646464;
+    text-decoration: line-through;
 }

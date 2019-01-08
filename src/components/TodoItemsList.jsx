@@ -21,7 +21,10 @@ export default class TodoItemsList extends Component {
                     lastJsonDueDate = todoItem.jsonDueDate
                 }
                 items.push(
-                    <TodoItem key={todoItem.id} todoItem={todoItem} />
+                    <TodoItem
+                        key={todoItem.id}
+                        todoItem={todoItem}
+                        toggleTodoComplete={this.props.toggleTodoComplete} />
                 )
             })
 

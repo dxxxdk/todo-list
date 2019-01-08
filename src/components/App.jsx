@@ -18,6 +18,7 @@ export default class App extends Component {
     }
 
     this.addTodo = this.addTodo.bind(this)
+    this.toggleTodoComplete = this.toggleTodoComplete.bind(this)
   }
 
   addTodo(title, jsonDueDate) {
@@ -35,12 +36,25 @@ export default class App extends Component {
     })
   }
 
+  toggleTodoComplete(id) {
+    this.setState({
+      todoItems: this.state.todoItems.map(todoItem => {
+        if (todoItem.id === id) {
+          todoItem.isComplete = !todoItem.isComplete
+        }
+        return todoItem
+      })
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <React.StrictMode>
           <NewTodoInput addTodo={this.addTodo} />
-          <TodoItemsList todoItems={this.state.todoItems} />
+          <TodoItemsList
+            todoItems={this.state.todoItems}
+            toggleTodoComplete={this.toggleTodoComplete} />
         </React.StrictMode>
       </div>
     )
