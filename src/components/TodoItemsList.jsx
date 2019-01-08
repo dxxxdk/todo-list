@@ -15,7 +15,7 @@ export default class TodoItemsList extends Component {
                     const dueDate = new Date(todoItem.jsonDueDate)
                     items.push(
                         <TodoItemsDueDate
-                            key={dueDate.getFullYear() * 32 * 13 + dueDate.getDay() * 13 + dueDate.getMonth()}
+                            key={dueDate.getFullYear() * 32 * 12 + dueDate.getDate() * 12 + dueDate.getMonth()}
                             dueDate={dueDate} />
                     )
                     lastJsonDueDate = todoItem.jsonDueDate
