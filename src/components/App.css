@@ -6,31 +6,34 @@
 }
 
 .todo-item {
-    border: 1.5px solid #888888;
+    border: 1.5px solid #cccccc;
     border-radius: 16px;
     padding: 8px 16px;
     margin: 3px;
 }
 
 .todo-checkbox {
-    width: 16px;
-    height: 16px;
+    width: 22px;
+    height: 22px;
     border: 1px solid #888888;
-    border-radius: 20%;
+    border-radius: 50%;
     float: left;
     margin-right: 8px;
 }
 
 .todo-checkbox:hover {
-    background-color: #cccccc;
+    background-color: #88cc8888;
 }
 
 .todo-checkbox-complete {
-    background-color: #888888;
+    background-color: #88cc88;
+    border-color: #88cc88;
 }
 
 .todo-title {
-    line-height: 18px;
+    line-height: 24px;
+    font-size: 18px;
+    overflow: auto;
 }
 
 .todo-title-complete {
