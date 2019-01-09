@@ -15,6 +15,13 @@ export default class TodoItem extends Component {
                 <div className={classNames('todo-title', { 'todo-title-complete': todoItem.isComplete })}>
                     {todoItem.title}
                 </div>
+
+                <div className={classNames('todo-button', 'todo-edit-button')}>
+                    Edit
+                </div>
+                <div className={classNames('todo-button', 'todo-delete-button')}>
+                    Delete
+                </div>
             </div>
         )
     }
