@@ -19,7 +19,9 @@ export default class TodoItem extends Component {
                 <div className={classNames('todo-button', 'todo-edit-button')}>
                     Edit
                 </div>
-                <div className={classNames('todo-button', 'todo-delete-button')}>
+                <div
+                    className={classNames('todo-button', 'todo-delete-button')}
+                    onClick={this.props.deleteTodo.bind(this, todoItem.id)}>
                     Delete
                 </div>
             </div>

@@ -24,7 +24,8 @@ export default class TodoItemsList extends Component {
                     <TodoItem
                         key={todoItem.id}
                         todoItem={todoItem}
-                        toggleTodoComplete={this.props.toggleTodoComplete} />
+                        toggleTodoComplete={this.props.toggleTodoComplete}
+                        deleteTodo={this.props.deleteTodo} />
                 )
             })
 

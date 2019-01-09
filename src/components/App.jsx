@@ -18,6 +18,7 @@ export default class App extends Component {
     }
 
     this.addTodo = this.addTodo.bind(this)
+    this.deleteTodo = this.deleteTodo.bind(this)
     this.toggleTodoComplete = this.toggleTodoComplete.bind(this)
   }
 
@@ -33,6 +34,17 @@ export default class App extends Component {
 
     this.setState({
       todoItems: todoItems
+    })
+  }
+
+  deleteTodo(id) {
+    this.setState({
+      todoItems: this.state.todoItems.filter(todoItem => {
+        if (todoItem.id !== id) {
+          return true
+        }
+        return false
+      })
     })
   }
 
@@ -54,7 +66,8 @@ export default class App extends Component {
           <NewTodoInput addTodo={this.addTodo} />
           <TodoItemsList
             todoItems={this.state.todoItems}
-            toggleTodoComplete={this.toggleTodoComplete} />
+            toggleTodoComplete={this.toggleTodoComplete}
+            deleteTodo={this.deleteTodo} />
         </React.StrictMode>
       </div>
     )
